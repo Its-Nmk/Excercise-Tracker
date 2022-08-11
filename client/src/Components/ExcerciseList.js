@@ -53,7 +53,7 @@ export class ExcerciseList extends Component {
   };
 
   deleteExercise = (id) => {
-    axios.delete(`http://localhost:4000/exercises/delete/${id}`).then((res) => {
+    axios.delete(`/exercises/delete/${id}`).then((res) => {
       console.log(res.data);
       console.log(res);
       if (res.status === 200) {
@@ -73,7 +73,7 @@ export class ExcerciseList extends Component {
 
   deleteMultipleExercises = () => {
     axios
-      .delete(`http://localhost:4000/exercises/delete/many/`, {
+      .delete(`/exercises/delete/many/`, {
         data: this.state.deleteIds,
       })
       .then((res) => {
