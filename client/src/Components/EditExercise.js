@@ -17,7 +17,7 @@ const EditExercise = (props) => {
   // ! Functions :
 
   useEffect(() => {
-    axios.get("http://localhost:4000/users").then((res) => {
+    axios.get("/users").then((res) => {
       console.log(res.data);
       if (res.data.length > 0) {
         setUsers(res.data);
@@ -25,7 +25,7 @@ const EditExercise = (props) => {
     });
 
     // console.log(id);
-    axios.get(`http://localhost:4000/exercises/${id}`).then((res) => {
+    axios.get(`/exercises/${id}`).then((res) => {
       console.log(res.data);
       setUserName(res.data.userName);
       setDescription(res.data.description);
@@ -47,7 +47,7 @@ const EditExercise = (props) => {
 
     // console.log(exercise);
     axios
-      .post("http://localhost:4000/exercises/update/" + id, exercise)
+      .post("/exercises/update/" + id, exercise)
       .then((res) => {
         // console.log(res.data);
         // console.log("exe");
