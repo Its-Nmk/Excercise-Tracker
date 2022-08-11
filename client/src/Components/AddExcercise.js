@@ -25,7 +25,7 @@ export class AddExcercise extends Component {
 
   componentDidMount() {
     // console.log("mounted");
-    axios.get("http://localhost:4000/users").then((res) => {
+    axios.get("/users").then((res) => {
       console.log(res.data);
       if (res.data.length > 0) {
         this.setState({ users: res.data });
@@ -66,7 +66,7 @@ export class AddExcercise extends Component {
 
     console.log(exercise);
     await axios
-      .post("http://localhost:4000/exercises/add", exercise)
+      .post("/exercises/add", exercise)
       .then((res) => {
         console.log(res.data);
         this.setState({ success: true });
