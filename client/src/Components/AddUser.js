@@ -27,7 +27,7 @@ export class AddUser extends Component {
     };
     console.log(user);
     await axios
-      .post("http://localhost:4000/users/add", user)
+      .post("/users/add", user)
       .then((res) => {
         console.log(res.data);
         this.setState({ success: true, users: [...this.state.users] });
@@ -45,7 +45,7 @@ export class AddUser extends Component {
   };
 
   componentDidMount() {
-    axios.get("http://localhost:4000/users").then((res) => {
+    axios.get("/users").then((res) => {
       // console.log(res.data);
       if (res.data.length > 0) {
         this.setState({ users: res.data });
@@ -54,7 +54,7 @@ export class AddUser extends Component {
   }
 
   deleteUser = (id) => {
-    axios.delete(`http://localhost:4000/users/delete/${id}`).then((res) => {
+    axios.delete(`/users/delete/${id}`).then((res) => {
       // console.log(res.data);
       // console.log(res);
       if (res.status === 200) {
