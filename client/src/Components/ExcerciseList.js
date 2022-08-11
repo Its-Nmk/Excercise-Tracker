@@ -22,7 +22,7 @@ export class ExcerciseList extends Component {
   componentDidMount() {
     this.setState({ loading: true });
     axios
-      .get("http://localhost:4000/exercises")
+      .get("/exercises")
       .then((res) => {
         console.log(res.data);
         this.setState({ excercises: res.data });
